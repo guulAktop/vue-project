@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{title}}</p>
+        <p> {{ hello() }} <a v-bind:href="link">Udemy</a> </p>
+        <p v-html="blogLink"></p>
+
+    </div>
+
+    <script type="text/JavaScript">
+    new Vue({
+        el:"#app",
+        data:{
+            title:"Welcome...",
+           link:"https://www.udemy.com",
+            blogLink:"<a href='https://www.udemy.com'> Udemy </a>"
+          
+        },
+        methods: {
+           hello: function (){
+               this.title= "Helloooo"
+               return this.title           }
+        }
+    })
+    </script>
+</body>
+
+</html>

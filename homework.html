@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events ödev</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="exercise">
+        <button v-on:click="showAlert"> Show Alert </button>
+        <input type="text" v-on:keydown="data">
+        <p> {{ value }} </p>
+        <input type="text" v-on:keydown.enter="data">
+        <p>
+            {{value}}
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: '#exercise',
+            data: {
+                value: ' ',
+            },
+            methods: {
+                showAlert: function () {
+                    alert();
+                },
+                data: function (e) {
+                    this.value = e.target.value;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

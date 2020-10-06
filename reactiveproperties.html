@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="exercises">
+        <div>
+            <p>Suan ki Değer: {{value}}</p>
+            <button @click="value+=5">5 Arttır</button>
+            <button @click="value++">Arttır</button>
+            <p>{{result}}</p>
+        </div>
+        <div>
+            <input type="text" v-model="timeout" />
+            <p>{{value}}</p>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#exercises",
+            data: {
+                value: 0,
+                timeout: 2000
+            },
+            computed: {
+                result: function () {
+                    console.log("method çalıştı");
+                    return this.value == 33 ? "Tamamlandi" : "Henüz Bitmedi";
+                },
+            },
+            watch: {
+                result: function (value) {
+                    vm = this;
+                    setTimeout(function () {
+                        vm.value = 0;
+                    }, this.timeout);
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
